@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.demohot.mybatis2.mapper.Score2Mapper">
+
+	<insert id="insert">
+		insert into score (name, fenshu)
+		values (#{name},
+		#{fenshu})
+	</insert>
+	<select id="list" resultType="Score2">
+		select * from score
+	</select>
+
+	<select id="get" resultType="Score2">
+		select * from score where
+		name=#{name}
+		limit 1;
+	</select>
+
+	<select id="query" resultType="Score2">
+		select * from score where
+		name=#{name};
+	</select>
+
+	<update id="update">
+		update score set
+		name=#{name},score=#{score} where
+		id=#{id}
+	</update>
+	<delete id="delete">
+		delete from score where id =#{id}
+	</delete>
+</mapper>
